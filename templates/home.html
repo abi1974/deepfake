@@ -1,0 +1,118 @@
+
+{%load static %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script
+  src="https://code.jquery.com/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+      <div class="logo"> <img src="{% static 'images/logo.png' %}" alt=""></div>
+     
+      <ul>
+        <li><a href="{% url 'ml_app:index' %}">Video</a></li>
+        <li><a href="{% url 'deep:upload' %}">Image</a></li>
+        <li><a href="{% url 'ml_app:about' %}">About us</a></li>
+        
+    </ul>
+    </div>
+
+<div class="container">
+  <img src="{% static 'images/dp img 1.webp' %}" alt="">
+  <div class="container-p">
+  <p class="p1">AI Deepfake Detection Made Easy with <span>LSTM</span> and <span>ResNext</span></p>
+  <p class="p2">In today's digital era, the threat of deepfake technology is at large, posing significant risks. Our deepfake detection software offers a solution to accurately identify manipulated content</p>
+ 
+</div>
+
+</div>
+<div class="result-feed">
+  <div class="num">
+    <ul>
+      <li class="li-item1">5 SEC</li>
+      <li>100%</li>
+      <li>90%</li>
+      <li>5+</li>
+    </ul>
+  </div>
+  <div class="char">
+    <ul>
+      <li>Analysis time</li>
+      <li>Explainable results</li>
+      <li>Accuracy</li>
+      <li>Deepfake types</li>
+  </ul>
+  </div>
+</div>
+
+<!--
+<div class="upload">
+  <div class="wrapper">
+    
+    <form action="#">
+      <input class="file-input" type="file" name="file" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Browse File to Upload</p>
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+  </div>
+</div>
+-->
+
+<div class="container-2">
+  <div class="cards">
+    <div class="card-1"><img src="{% static 'images/fast.png' %}" alt="">
+    <p class="p3">Fast & Accurate</p>
+    <p>Get quick and reliable identification of deepfake content in real-time with our accuracy rate of up to 99% and lightning-fast analysis time of just 1 sec</p>
+    </div>
+    <div class="card-2">
+      <img src="{% static 'images/comprehensible.png' %}" alt="">
+      <p class="p4">Comprehensible</p>
+      <p>Our advanced AI algorithms are designed to detect a wide range of deepfake techniques, including face swaps, lip-syncing, and manipulated audio</p>
+
+    </div>
+    <div class="card-3"><img src="{% static 'images/custom.png' %}" alt="">
+    <p class="p5">Customizable</p>
+    <p>Our flexible API integration empowers you to seamlessly customize and integrate our deepfake detection solution into your existing identity verification systems</p>
+    </div>
+    <div class="card-4">
+      <img src="{% static 'images/explain.png' %}" alt="">
+      <p class="p6">Explainable</p>
+      <p>Our advanced AI algorithms checks videos and images for signs of manipulation and provide detailed explanations of any detected deepfakes</p>
+
+
+    </div>
+  </div>
+</div>
+<div class="container-3">
+  <h1>How deepfakes are detected</h1>
+  <img src="{% static 'images/deepfake steps.webp' %}" alt="">
+  <div class="text-block">Deepfake detector detects deepfake faces in videos and pictures with an accuracy of 95%. Our technology does not only classify an input as fake, but also explains the reasoning behind its decision by using Activation Maps. It is able to do this, because the DeepDetector has seen hundreds of thousands of real and deepfake images. It has trained itself on these images and has learned to find the subtle differences between a photo made with a real camera or a photo synthesised by a computer.</div>
+</div>
+<div class="footer">
+  <div class="items"><ul>
+    <li>Privacy Policy</li>
+    <li>Cookie Settings</li>
+    <li>API</li>
+    <li>Support Us</li>
+  </ul></div>
+</div>
+<script src="{% static 'js/script1.js' %}"></script>
+</body>
+</html>

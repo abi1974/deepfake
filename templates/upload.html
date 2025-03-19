@@ -1,0 +1,233 @@
+<!-- upload.html -->
+<!--<h2 method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <h2><label for="Upload_Image" name="Upload_Image">upload the image</label></h2>
+    <br>
+    <button type="submit" name="Upload_Image">Upload</button>
+</form>
+-->
+
+
+
+
+
+<!--
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h2>Upload Image</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+
+>
+-->
+
+
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffffff;
+            
+        }
+        
+        .container {
+            background-color: #f8f8f8;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            top: 20px;
+            background-color: #FFFFFF;
+           
+        }
+        label{
+            position: relative;
+            left: 6vh;
+        }
+        input{
+            position: relative;
+            left: 7vh;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            padding: 12px 24px;
+        
+          
+            color: #fff;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+            .upload-btn1{
+                display: inline-block;
+            padding: 12px 24px;
+        
+            background-color: #00AF54;
+            color: #fff;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            border:none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            font-size: 16px;
+            }
+        .upload-btn1:hover {
+            background-color: #008F45;
+        }
+
+        #file-input {
+            display: none;
+        }
+
+        .preview {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 300px;
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar{
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    color: rgb(20, 0, 0);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    
+}
+.logo img{
+  width: 90px;
+  height: 90px;
+  margin-left: 15px;
+  margin-top: -6px;
+  
+  
+}
+.navbar ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+  cursor: pointer;
+    margin-left: 600px;
+    font-weight: 600;
+    color: white;
+   position: relative;
+   bottom: 80px;
+    
+}
+
+.navbar ul li a:hover{
+  color: yellow;
+  transition: 1s;
+}
+.navbar ul li a{
+  text-decoration: none;
+  color: white;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo"> <img src="{% static 'images/logo.png' %}" alt=""></div>
+       
+          <ul>
+            <li><a href="{% url 'ml_app:home' %}">Home</a></li>
+            <li><a href="{% url 'ml_app:index' %}">Video</a></li>
+              <li><a href="{% url 'ml_app:about' %}">About us</a></li>
+             
+          </ul>
+      </div>
+    <div class="container">
+        <h1>Upload Your Image</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+    
+        <label for="file-input" class="upload-btn"> </label><center>{{ form }}</center><br><br>
+       
+
+        {% if obj %}
+        <h3>Succesfully uploaded : {{img_obj.caption}}</h3>
+        <img src="{{ obj.url}}" alt="image" class="img-thumbnail" >
+        {% endif %}
+
+
+        <button class="upload-btn1" type="submit">Upload</button>
+
+        <input type="file" id="file-input" accept="image/*">
+        <div class="preview">
+            <img id="image-preview" >
+        </form>
+        </div>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file-input');
+        const imagePreview = document.getElementById('image-preview');
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function() {
+                    imagePreview.src = reader.result;
+                }
+
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

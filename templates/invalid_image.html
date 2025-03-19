@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%load static%}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invalid Image</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .container {
+    margin-top: 100px;
+  }
+  .message {
+    font-size: 24px;
+    color: red;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>Invalid Image</h2>
+    <p class="message">The uploaded image does not contain a face. Please upload an image with a clear face.</p>
+    <!-- You can add additional instructions or links here if needed -->
+  </div>
+</body>
+</html>
+{%endblock%}

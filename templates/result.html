@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload Result</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        img {
+            max-width: 500px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+        p{
+            font-family: sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        h2{
+            font-family: sans-serif;
+            font-size: 28px;
+            text-transform: uppercase;
+            font-weight: 600;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Image Upload Result</h2>
+        <p>Prediction : {{ prediction_label }}</p>
+        {% if obj %}
+        <h3>Succesfully uploaded: {{ obj.caption }}</h3>
+        <img src="{{ obj.image.url }}" alt="Uploaded Image" class="img-thumbnail">
+        <hr>
+    {% endif %}
+    
+    <div class="row">
+        {% for x in img %}
+            {% if forloop.last %}
+                <div class="col-lg-4 col-md-4 col-12">
+                    <div class="text-center mt-2">
+                        <img src="{{ x.image.url }}" height="70%" width="70%" class="img-thumbnail" alt="...">
+                        <h2 class="text-center">{{ x.caption }}</h2>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+   
+    
+    </div>
+    <script>
+        // JavaScript to reload the page when it's refreshed
+        window.onload = function() {
+            if (!window.location.hash) {
+                window.location = window.location + '#loaded';
+                window.location.reload();
+            }
+        }
+    </script>
